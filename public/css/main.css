@@ -1,0 +1,4 @@
+.panel-group .panel-title:focus, .panel-group .panel-title:hover {
+    color: #0b69e3 !important;
+    text-decoration: none;
+}

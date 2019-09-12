@@ -21,3 +21,17 @@ Route::get('/login', function(){
 Route::get('/invoice', function(){
     return view('customer.invoice');
 })->name('customer.invoice');
+Route::get('/payments', function(){
+    return view('customer.payments');
+})->name('customer.payments');
+Route::get('/help', function(){
+    return view('customer.help');
+})->name('customer.help');
+
+Route::get('/legal', function(){
+    return view('customer.legal');
+})->name('customer.legal');
+
+Route::get('/calendar', function(){
+    return view('customer.calendar');
+})->name('customer.calendar');

@@ -1,4 +1,4 @@
 
 $(document).ready(function(){
-$("#ivoices_table").Datatable()
+$("#ivoices_table").DataTable();
 });

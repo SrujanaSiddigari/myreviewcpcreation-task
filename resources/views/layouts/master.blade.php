@@ -10,7 +10,8 @@
    <title>Invoygo Customer Portal</title>
    <link rel="apple-touch-icon" href="{{ asset('assets/images/apple-touch-icon.png')}}">
    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico')}}">
-
+<!--Piagnose calendar-->
+<link rel="stylesheet" href="{{ asset('global/css/pignose.calender.css') }}">
    <!-- Stylesheets -->
    <link rel="stylesheet" href="{{ asset('global/css/bootstrap.min599c.css?v4.0.2')}}">
    <link rel="stylesheet" href="{{ asset('global/css/bootstrap-extend.min599c.css?v4.0.2')}}">
@@ -35,17 +36,20 @@
    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
    <!--Datatable-->
-   <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-bs4/dataTables.bootstrap4.min599c.css?v4.0.2') }}">
+   <link rel="stylesheet" href="{{ asset('global/css/jquery-ui.css') }}">
+   <link rel="stylesheet" href="{{ asset('global/css/dataTables.jqueryui.min.css') }}">
+   
+   <!-- <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-bs4/dataTables.bootstrap4.min599c.css?v4.0.2') }}">
   <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-fixedheader-bs4/dataTables.fixedheader.bootstrap4.min599c.css?v4.0.2') }}">
   <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-fixedcolumns-bs4/dataTables.fixedcolumns.bootstrap4.min599c.css?v4.0.2') }}">
   <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-rowgroup-bs4/dataTables.rowgroup.bootstrap4.min599c.css?v4.0.2') }}">
   <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-scroller-bs4/dataTables.scroller.bootstrap4.min599c.css?v4.0.2') }}">
   <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-select-bs4/dataTables.select.bootstrap4.min599c.css?v4.0.2') }}">
   <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-responsive-bs4/dataTables.responsive.bootstrap4.min599c.css?v4.0.2') }}">
-  <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-buttons-bs4/dataTables.buttons.bootstrap4.min599c.css?v4.0.2') }}">
+  <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-buttons-bs4/dataTables.buttons.bootstrap4.min599c.css?v4.0.2') }}"> -->
 
   <!-- Page -->
-  <link rel="stylesheet" href="{{ asset('assets/examples/css/tables/datatable.min599c.css?v4.0.2') }}">
+  <!-- <link rel="stylesheet" href="{{ asset('assets/examples/css/tables/datatable.min599c.css?v4.0.2') }}"> -->
 
    <!-- Plugins For This Page -->
    
@@ -114,40 +118,11 @@
                      </i>
                   </a>
                </li>
-               <!-- <li class="nav-item hidden-sm-down" id="toggleFullscreen">
-                     <a class="nav-link icon icon-fullscreen" data-toggle="fullscreen" href="#" role="button">
-                     <span class="sr-only">Toggle fullscreen</span>
-                     </a>
-                  </li>
-                  <li class="nav-item hidden-float">
-                     <a class="nav-link icon wb-search" data-toggle="collapse" href="#" data-target="#site-navbar-search"
-                        role="button">
-                     <span class="sr-only">Toggle Search</span>
-                     </a>
-                  </li>
-                   -->
             </ul>
             <!-- End Navbar Toolbar -->
             <!-- Navbar Toolbar Right -->
             <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
-               <!-- <li class="nav-item dropdown">
-                     <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" data-animation="scale-up"
-                        aria-expanded="false" role="button">
-                     <span class="flag-icon flag-icon-us"></span>
-                     </a>
-                     <div class="dropdown-menu" role="menu">
-                        <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                        <span class="flag-icon flag-icon-gb"></span> English</a>
-                        <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                        <span class="flag-icon flag-icon-fr"></span> French</a>
-                        <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                        <span class="flag-icon flag-icon-cn"></span> Chinese</a>
-                        <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                        <span class="flag-icon flag-icon-de"></span> German</a>
-                        <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                        <span class="flag-icon flag-icon-nl"></span> Dutch</a>
-                     </div>
-                  </li> -->
+            
                <li class="nav-item" style="margin-top: 20px;"><label>Please choose Tenant Name  &nbsp;</label></li>
                <li class="nav-item" style="margin-top: 13px;">
 
@@ -155,23 +130,7 @@
                      <option value="" selected style="background-color:#ffffff;border:none;" disabled>Select Tenant</option>
                   </select>
                </li>
-               <li class="nav-item dropdown">
-                  <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media" role="menu">
-                     <li class="dropdown-menu-header" role="presentation">
-                        <h5>NOTIFICATIONS</h5>
-                        <span class="badge badge-round badge-danger"></span>
-                     </li>
-               
-                     <li class="dropdown-menu-footer" role="presentation">
-                        <a class="dropdown-menu-footer-btn" href="javascript:void(0)" role="button">
-                           <i class="icon wb-settings" aria-hidden="true"></i>
-                        </a>
-                        <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                           All notifications
-                        </a>
-                     </li>
-                  </ul>
-               </li>
+
                <li class="nav-item dropdown">
                   <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false" data-animation="scale-up" role="button">
                      <span class="avatar avatar-online">
@@ -183,99 +142,7 @@
                      <a class="dropdown-item" href="javascript:void(0)" id="apiLogout" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
                   </div>
                </li>
-                     <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" title="Messages"
-                        aria-expanded="false" data-animation="scale-up" role="button">
-                     <i class="icon wb-envelope" aria-hidden="true"></i>
-                     <span class="badge badge-pill badge-info up">3</span>
-                     </a>
-                     <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media" role="menu">
-                        <li class="dropdown-menu-header" role="presentation">
-                           <h5>MESSAGES</h5>
-                           <span class="badge badge-round badge-info">New 3</span>
-                        </li>
-                        <li class="list-group" role="presentation">
-                           <div data-role="container">
-                              <div data-role="content">
-                                 <a class="list-group-item" href="javascript:void(0)" role="menuitem">
-                                    <div class="media">
-                                       <div class="pr-10">
-                                          <span class="avatar avatar-sm avatar-online">
-                                          <img src="{{ asset('global/photos/view-1-150x100.jpg') }}" alt="..." />
-                                          <i></i>
-                                          </span>
-                                       </div>
-                                       <div class="media-body">
-                                          <h6 class="media-heading">Mary Adams</h6>
-                                          <div class="media-meta">
-                                             <time datetime="2018-06-17T20:22:05+08:00">30 minutes ago</time>
-                                          </div>
-                                          <div class="media-detail">Anyways, i would like just do it</div>
-                                       </div>
-                                    </div>
-                                 </a>
-                                 <a class="list-group-item" href="javascript:void(0)" role="menuitem">
-                                    <div class="media">
-                                       <div class="pr-10">
-                                          <span class="avatar avatar-sm avatar-off">
-                                          <img src="{{ asset('global/photos/view-1-150x100.jpg') }}" alt="..." />
-                                          <i></i>
-                                          </span>
-                                       </div>
-                                       <div class="media-body">
-                                          <h6 class="media-heading">Caleb Richards</h6>
-                                          <div class="media-meta">
-                                             <time datetime="2018-06-17T12:30:30+08:00">12 hours ago</time>
-                                          </div>
-                                          <div class="media-detail">I checheck the document. But there seems</div>
-                                       </div>
-                                    </div>
-                                 </a>
-                                 <a class="list-group-item" href="javascript:void(0)" role="menuitem">
-                                    <div class="media">
-                                       <div class="pr-10">
-                                          <span class="avatar avatar-sm avatar-busy">
-                                          <img src="{{ asset('global/photos/view-1-150x100.jpg') }}" alt="..." />
-                                          <i></i>
-                                          </span>
-                                       </div>
-                                       <div class="media-body">
-                                          <h6 class="media-heading">June Lane</h6>
-                                          <div class="media-meta">
-                                             <time datetime="2018-06-16T18:38:40+08:00">2 days ago</time>
-                                          </div>
-                                          <div class="media-detail">Lorem ipsum Id consectetur et minim</div>
-                                       </div>
-                                    </div>
-                                 </a>
-                                 <a class="list-group-item" href="javascript:void(0)" role="menuitem">
-                                    <div class="media">
-                                       <div class="pr-10">
-                                          <span class="avatar avatar-sm avatar-away">
-                                          <img src="{{ asset('global/photos/view-1-150x100.jpg') }}" alt="..." />
-                                          <i></i>
-                                          </span>
-                                       </div>
-                                       <div class="media-body">
-                                          <h6 class="media-heading">Edward Fletcher</h6>
-                                          <div class="media-meta">
-                                             <time datetime="2018-06-15T20:34:48+08:00">3 days ago</time>
-                                          </div>
-                                          <div class="media-detail">Dolor et irure cupidatat commodo nostrud nostrud.</div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
-                           </div>
-                        </li>
-                        <li class="dropdown-menu-footer" role="presentation">
-                           <a class="dropdown-menu-footer-btn" href="javascript:void(0)" role="button">
-                           <i class="icon wb-settings" aria-hidden="true"></i>
-                           </a>
-                           <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                           See all messages
-                           </a>
-                        </li>
-                     </ul>
+              
                   </li> 
             </ul>
             <!-- End Navbar Toolbar Right -->
@@ -294,22 +161,22 @@
                <ul class="site-menu" data-plugin="menu">
                   <li class="site-menu-category">General</li>
                   <li class="site-menu-item has-sub">
-                  <li class='site-menu-item has-sub {{ Request::is('dash') ? 'active' : '' }}'>
-                     <a href="{{url('/dash')}}">
+                  <li class='site-menu-item has-sub {{ Request::is('') ? 'active' : '' }}'>
+                     <a href="{{url('/')}}">
                         <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
                         <span class="site-menu-title">Dashboard</span>
                         <span class="site-menu-arrow"></span>
                      </a>
                   </li>
-                  <li class='site-menu-item has-sub {{ Request::is('invoicelist') ? 'active' : '' }}'>
-                     <a href="{{url('/invoicelist')}}">
+                  <li class='site-menu-item has-sub {{ Request::is('invoice') ? 'active' : '' }}'>
+                     <a href="{{url('/invoice')}}">
                         <i class="site-menu-icon wb-file" aria-hidden="true"></i>
                         <span class="site-menu-title">Invoices</span>
                         <span class="site-menu-arrow"></span>
                      </a>
                   </li>
-                  <li class='site-menu-item has-sub {{ Request::is('payment') ? 'active' : '' }}'>
-                  <a href="{{url('/payment')}}">
+                  <li class='site-menu-item has-sub {{ Request::is('payments') ? 'active' : '' }}'>
+                  <a href="{{url('/payments')}}">
                         <i class="site-menu-icon fa fa-usd" aria-hidden="true"></i>
                         <span class="site-menu-title">Payments</span>
                         <span class="site-menu-arrow"></span>
@@ -396,6 +263,7 @@
    <!-- Core  -->
    <script src="{{ asset('global/vendor/babel-external-helpers/babel-external-helpers599c.js?v4.0.2') }}"></script>
    <script src="{{ asset('global/vendor/jquery/jquery.min599c.js?v4.0.2') }}"></script>
+   <script src="{{ asset('global/vendor/jquery/jquery.minfd53.js?v4.0.2') }}"></script>
    <script src="{{ asset('global/vendor/popper-js/umd/popper.min599c.js?v4.0.2') }}"></script>
    <script src="{{ asset('global/vendor/bootstrap/bootstrap.min599c.js?v4.0.2') }}"></script>
    <script src="{{ asset('global/vendor/animsition/animsition.min599c.js?v4.0.2') }}"></script>
@@ -432,7 +300,13 @@
    </script>
 
    <!--Data table-->
-   <script src="{{ asset('global/vendor/datatables.net/jquery.dataTables599c.js?v4.0.2') }}"></script>
+   <!-- <script src="{{ asset('global/js/jquery-3.3.1.js') }}"></script> -->
+   <script src="{{ asset('global/js/jquery.dataTables.min.js') }}"></script>
+   <script src="{{ asset('global/js/dataTables.jqueryui.min.js') }}"></script>
+
+  
+
+   <!-- <script src="{{ asset('global/vendor/datatables.net/jquery.dataTables599c.js?v4.0.2') }}"></script>
   <script src="{{ asset('global/vendor/datatables.net-bs4/dataTables.bootstrap4599c.js?v4.0.2') }}"></script>
   <script src="{{ asset('global/vendor/datatables.net-fixedheader/dataTables.fixedHeader.min599c.js?v4.0.2') }}"></script>
   <script src="{{ asset('global/vendor/datatables.net-fixedcolumns/dataTables.fixedColumns.min599c.js?v4.0.2') }}"></script>
@@ -449,15 +323,15 @@
   <script src="{{ asset('global/js/Plugin/datatables.min599c.js?v4.0.2') }}"></script>
 
 
-  <script src="{{ asset('assets/examples/js/tables/datatable.min599c.js?v4.0.2') }}"></script>
+  <script src="{{ asset('assets/examples/js/tables/datatable.min599c.js?v4.0.2') }}"></script> -->
 
    <!-- <script src="{{ asset('global/js/Plugin/dropify.min.js?v4.0.2')}}"></script> -->
    <script src="//cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
    <script src="{{ asset('js/plugins/jqueryvalidate.min.js') }}"></script>
    <script src="{{ asset('js/jquery.mask.js') }}"></script>
    <!-- Page -->
-   <script src="{{ asset('global\vendor\fullcalendar390\lib\moment.min.js') }}"></script>
-   <script src="{{ asset('global\vendor\fullcalendar390\fullcalendar.min.js') }}"></script>
+   <script src="{{ asset('global/vendor/fullcalendar390/lib/moment.min.js') }}"></script>
+   <script src="{{ asset('global/vendor/fullcalendar390/fullcalendar.min.js') }}"></script>
    <script src="{{ asset('assets/js/Site.min599c.js?v4.0.2') }}"></script>
    <script src="{{ asset('global/js/Plugin/asscrollable.min599c.js?v4.0.2') }}"></script>
    <script src="{{ asset('global/js/Plugin/slidepanel.min599c.js?v4.0.2') }}"></script>
@@ -468,6 +342,8 @@
    <script src="{{ asset('js/plugins/jquerymask.min.js') }}"></script>
    <script src="{{ asset('js/jquery.mask.js') }}"></script>
    <script src="{{ asset('js/plugins/jqueryblockUI.min.js') }}"></script>
+   <!--Piagnose calendar-->
+<script src="{{ asset('js/plugins/pignose.calender.js') }}"></script>
    <!--Datepicker-->
    <script src="{{ asset( 'global/vendor/bootstrap-datepicker/bootstrap-datepicker.minfd53.js?v4.0.2') }}"></script>
 
