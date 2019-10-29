@@ -2,3 +2,15 @@
     color: #0b69e3 !important;
     text-decoration: none;
 }
+.cardheight {
+    color: #fff;
+    height: 200px !important;
+    background-color: #3e8ef7;
+}
+.cardstyle{
+    height: 127px !important;
+}
+small {
+    font-size: 110% !important;
+    font-weight: 300;
+}

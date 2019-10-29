@@ -7,8 +7,8 @@
       <div class="panel">
         <div class="panel-body">
           <div class="brand">
-            <img class="brand-img" src="../assets/images/logo-colored.png" alt="...">
-            <h2 class="brand-text font-size-18">Remark</h2>
+            <!-- <img class="brand-img" src="../assets/images/logo2.png" style='width:120px;height:100px'> -->
+            <h2 class="brand-text font-size-18">Invoygo</h2>
           </div>
           <form method="post" id="login_form">
             <div class="form-group form-material floating" data-plugin="formMaterial">

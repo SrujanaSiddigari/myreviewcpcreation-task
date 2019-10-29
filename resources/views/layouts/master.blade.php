@@ -10,8 +10,7 @@
    <title>Invoygo Customer Portal</title>
    <link rel="apple-touch-icon" href="{{ asset('assets/images/apple-touch-icon.png')}}">
    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico')}}">
-<!--Piagnose calendar-->
-<link rel="stylesheet" href="{{ asset('global/css/pignose.calender.css') }}">
+
    <!-- Stylesheets -->
    <link rel="stylesheet" href="{{ asset('global/css/bootstrap.min599c.css?v4.0.2')}}">
    <link rel="stylesheet" href="{{ asset('global/css/bootstrap-extend.min599c.css?v4.0.2')}}">
@@ -31,7 +30,8 @@
    <link rel="stylesheet" href="{{ asset ('global/vendor/icheck/icheck.min599c.css?v4.0.2') }}">
    <link rel="stylesheet" href="{{ asset('assets/examples/css/forms/validation.minfd53.css?v4.0.2')}}">
    <link rel="stylesheet" href="{{ asset('global/vendor/formvalidation/formValidation.minfd53.css?v4.0.2')}}">
-   
+   <!--File upload-->
+   <link rel="stylesheet" href="{{ asset('global/vendor/blueimp-file-upload/jquery.fileupload.min599c.css?v4.0.2') }}">
    <!--main.css-->
    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
@@ -60,7 +60,7 @@
    <link rel="stylesheet" href="{{ asset( 'assets/css/font-awesome/font-awesome.minfd53.css?v4.0.1' ) }}">
    <link href="{{ asset('global\vendor\fullcalendar390\fullcalendar.min.css' ) }}" rel='stylesheet' />
    <link href="{{ asset('global\vendor\fullcalendar390\fullcalendar.print.min.css' ) }}" rel='stylesheet' media='print' />
-   <!-- <link rel="stylesheet" href="{{ asset('global/vendor/dropify/css/dropify-multiple.css') }}"> -->
+   <link rel="stylesheet" href="{{ asset('global/vendor/dropify/css/dropify-multiple.css') }}">
 
    <!-- Fonts -->
    <link rel="stylesheet" href="{{ asset('global/fonts/web-icons/web-icons.min599c.css?v4.0.2')}}">
@@ -123,10 +123,10 @@
             <!-- Navbar Toolbar Right -->
             <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
             
-               <li class="nav-item" style="margin-top: 20px;"><label>Please choose Tenant Name  &nbsp;</label></li>
+               <li class="nav-item" style="margin-top: 20px;"><label>Please select a Tenant  &nbsp;</label></li>
                <li class="nav-item" style="margin-top: 13px;">
 
-                  <select class="form-control tenant_selectbox" id="tenants" style="border:1px solid #808080;">
+                  <select class="form-control tenant_selectbox" id="tenants">
                      <option value="" selected style="background-color:#ffffff;border:none;" disabled>Select Tenant</option>
                   </select>
                </li>
@@ -162,7 +162,7 @@
                   <li class="site-menu-category">General</li>
                   <li class="site-menu-item has-sub">
                   <li class='site-menu-item has-sub {{ Request::is('') ? 'active' : '' }}'>
-                     <a href="{{url('/')}}">
+                     <a href="{{url('/dashboard')}}">
                         <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
                         <span class="site-menu-title">Dashboard</span>
                         <span class="site-menu-arrow"></span>
@@ -183,7 +183,7 @@
                      </a>
                   </li>
                   <li class="site-menu-category">Elements</li>
-                  <li class='site-menu-item has-sub {{ Request::is('calendar*') || Request::is('task*') || Request::is('documents*') ? 'active' : '' }}'>
+                  <li class='site-menu-item has-sub {{ Request::is('calendar*') || Request::is('task*') || Request::is('document*') ? 'active' : '' }}'>
                      <a href="javascript:void(0)" data-dropdown-toggle="false">
                         <i class="site-menu-icon wb-settings" aria-hidden="true"></i>
                         <span class="site-menu-title">Tools</span>
@@ -201,7 +201,7 @@
                            </a>
                         </li>
                         <li class="site-menu-item">
-                           <a href="{{url('/documents')}}">
+                           <a href="{{url('/document')}}">
                               <span class="site-menu-title">Documents</span>
                            </a>
                         </li>
@@ -226,7 +226,7 @@
                         </li>
                      </ul>
                   </li>
-                  <li class='site-menu-item has-sub {{ Request::is('preference*') || Request::is('legal*') ? 'active' : '' }}'>
+                  <li class='site-menu-item has-sub {{ Request::is('preferences*') || Request::is('legal*') ? 'active' : '' }}'>
                      <a href="javascript:void(0)" data-dropdown-toggle="false">
                         <i class="site-menu-icon wb-user" aria-hidden="true"></i>
                         <span class="site-menu-title">Account</span>
@@ -234,7 +234,7 @@
                      </a>
                      <ul class="site-menu-sub">
                         <li class="site-menu-item">
-                           <a href="{{url('/preference')}}">
+                           <a href="{{url('/preferences')}}">
                               <span class="site-menu-title">Preferences</span>
                            </a>
                         </li>
@@ -256,7 +256,7 @@
    <footer class="site-footer">
       <div class="site-footer-legal">©Invoygo</div>
       <div class="site-footer-right">
-         Crafted by GKB Labs
+     CopyrightLimited 2019
       </div>
    </footer>
 
@@ -273,7 +273,7 @@
    <script src="{{ asset('global/vendor/ashoverscroll/jquery-asHoverScroll.min599c.js?v4.0.2') }}"></script>
 
    <!-- Plugins -->
-   <script type="text/javascript" src="https://zcptest.nectardesk.io/chat/embed"></script>
+   <!-- <script type="text/javascript" src="https://zcptest.nectardesk.io/chat/embed"></script> -->
    <script src="{{ asset('global/vendor/switchery/switchery.min599c.js?v4.0.2') }}"></script>
    <script src="{{ asset('global/vendor/intro-js/intro.min599c.js?v4.0.2') }}"></script>
    <script src="{{ asset('global/vendor/screenfull/screenfull599c.js?v4.0.2') }}"></script>
@@ -306,29 +306,24 @@
 
   
 
-   <!-- <script src="{{ asset('global/vendor/datatables.net/jquery.dataTables599c.js?v4.0.2') }}"></script>
-  <script src="{{ asset('global/vendor/datatables.net-bs4/dataTables.bootstrap4599c.js?v4.0.2') }}"></script>
-  <script src="{{ asset('global/vendor/datatables.net-fixedheader/dataTables.fixedHeader.min599c.js?v4.0.2') }}"></script>
-  <script src="{{ asset('global/vendor/datatables.net-fixedcolumns/dataTables.fixedColumns.min599c.js?v4.0.2') }}"></script>
-  <script src="{{ asset('global/vendor/datatables.net-rowgroup/dataTables.rowGroup.min599c.js?v4.0.2') }}"></script>
-  <script src="{{ asset('global/vendor/datatables.net-scroller/dataTables.scroller.min599c.js?v4.0.2') }}"></script>
-  <script src="{{ asset('global/vendor/datatables.net-responsive/dataTables.responsive.min599c.js?v4.0.2') }}"></script>
-  <script src="{{ asset('global/vendor/datatables.net-responsive-bs4/responsive.bootstrap4.min599c.js?v4.0.2') }}"></script>
-  <script src="{{ asset('global/vendor/datatables.net-buttons/dataTables.buttons.min599c.js?v4.0.2') }}"></script>
-  <script src="{{ asset('global/vendor/datatables.net-buttons/buttons.html5.min599c.js?v4.0.2') }}"></script>
-  <script src="{{ asset('global/vendor/datatables.net-buttons/buttons.flash.min599c.js?v4.0.2') }}"></script>
-  <script src="{{ asset('global/vendor/datatables.net-buttons/buttons.print.min599c.js?v4.0.2') }}"></script>
-  <script src="{{ asset('global/vendor/datatables.net-buttons/buttons.colVis.min599c.js?v4.0.2') }}"></script>
-  <script src="{{ asset('global/vendor/datatables.net-buttons-bs4/buttons.bootstrap4.min599c.js?v4.0.2') }}"></script>
-  <script src="{{ asset('global/js/Plugin/datatables.min599c.js?v4.0.2') }}"></script>
 
-
-  <script src="{{ asset('assets/examples/js/tables/datatable.min599c.js?v4.0.2') }}"></script> -->
+  <script src="{{ asset('assets/examples/js/tables/datatable.min599c.js?v4.0.2') }}"></script> 
 
    <!-- <script src="{{ asset('global/js/Plugin/dropify.min.js?v4.0.2')}}"></script> -->
    <script src="//cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
    <script src="{{ asset('js/plugins/jqueryvalidate.min.js') }}"></script>
    <script src="{{ asset('js/jquery.mask.js') }}"></script>
+
+   <!--File Upload-->
+   <script src="{{ asset ('global/vendor/blueimp-file-upload/jquery.fileupload599c.js?v4.0.2') }}"></script>
+  <script src="{{ asset('global/vendor/blueimp-file-upload/jquery.fileupload-process599c.js?v4.0.2') }}"></script>
+  <script src="{{ asset('global/vendor/blueimp-file-upload/jquery.fileupload-image599c.js?v4.0.2') }}"></script>
+  <script src="{{ asset('global/vendor/blueimp-file-upload/jquery.fileupload-audio599c.js?v4.0.2') }}"></script>
+  <script src="{{ asset('global/vendor/blueimp-file-upload/jquery.fileupload-video599c.js?v4.0.2') }}"></script>
+  <script src="{{ asset('global/vendor/blueimp-file-upload/jquery.fileupload-validate599c.js?v4.0.2') }}"></script>
+  <script src="{{ asset('global/vendor/blueimp-file-upload/jquery.fileupload-ui599c.js?v4.0.2') }}"></script>
+  <!-- <script src="{{ asset('assets/examples/js/forms/uploads.min599c.js?v4.0.2') }}"></script> -->
+
    <!-- Page -->
    <script src="{{ asset('global/vendor/fullcalendar390/lib/moment.min.js') }}"></script>
    <script src="{{ asset('global/vendor/fullcalendar390/fullcalendar.min.js') }}"></script>
@@ -342,8 +337,7 @@
    <script src="{{ asset('js/plugins/jquerymask.min.js') }}"></script>
    <script src="{{ asset('js/jquery.mask.js') }}"></script>
    <script src="{{ asset('js/plugins/jqueryblockUI.min.js') }}"></script>
-   <!--Piagnose calendar-->
-<script src="{{ asset('js/plugins/pignose.calender.js') }}"></script>
+
    <!--Datepicker-->
    <script src="{{ asset( 'global/vendor/bootstrap-datepicker/bootstrap-datepicker.minfd53.js?v4.0.2') }}"></script>
 
@@ -360,7 +354,7 @@
          //   calendar.render();
          });
       
-   </script>
+</script>
 </body>
 
 </html>

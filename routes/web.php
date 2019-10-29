@@ -19,19 +19,34 @@ Route::get('/login', function(){
     return view('auth.login');
 })->name('login');
 Route::get('/invoice', function(){
-    return view('customer.invoice');
-})->name('customer.invoice');
+    return view('cust.invoice');
+})->name('cust.invoice');
 Route::get('/payments', function(){
-    return view('customer.payments');
-})->name('customer.payments');
+    return view('cust.payments');
+})->name('cust.payments');
 Route::get('/help', function(){
-    return view('customer.help');
-})->name('customer.help');
+    return view('cust.help');
+})->name('cust.help');
 
 Route::get('/legal', function(){
-    return view('customer.legal');
-})->name('customer.legal');
+    return view('cust.legal');
+})->name('cust.legal');
 
 Route::get('/calendar', function(){
-    return view('customer.calendar');
-})->name('customer.calendar');
+    return view('cust.calendar');
+})->name('cust.calendar');
+Route::get('/document', function(){
+    return view('cust.document');
+})->name('cust.document');
+Route::get('/task', function(){
+    return view('cust.task');
+})->name('cust.task');
+Route::get('/dashboard', function(){
+    return view('cust.dashboard');
+})->name('cust.dashboard');
+Route::get('/contactus', function(){
+    return view('cust.contactus');
+})->name('cust.contactus');
+Route::get('/preferences', function(){
+    return view('cust.preferences');
+})->name('cust.preferences');
