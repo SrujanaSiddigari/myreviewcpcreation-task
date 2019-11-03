@@ -12,41 +12,28 @@
 */
 
 Route::get('/', function () {
-    return redirect()->route('login');
+    return redirect()->route('cust.task');
 });
-
-Route::get('/login', function(){
-    return view('auth.login');
-})->name('login');
-Route::get('/invoice', function(){
-    return view('cust.invoice');
-})->name('cust.invoice');
-Route::get('/payments', function(){
-    return view('cust.payments');
-})->name('cust.payments');
-Route::get('/help', function(){
-    return view('cust.help');
-})->name('cust.help');
-
-Route::get('/legal', function(){
-    return view('cust.legal');
-})->name('cust.legal');
-
-Route::get('/calendar', function(){
-    return view('cust.calendar');
-})->name('cust.calendar');
-Route::get('/document', function(){
-    return view('cust.document');
-})->name('cust.document');
+//new task
 Route::get('/task', function(){
-    return view('cust.task');
+    return view ('cust.task');
 })->name('cust.task');
-Route::get('/dashboard', function(){
-    return view('cust.dashboard');
-})->name('cust.dashboard');
-Route::get('/contactus', function(){
-    return view('cust.contactus');
-})->name('cust.contactus');
-Route::get('/preferences', function(){
-    return view('cust.preferences');
-})->name('cust.preferences');
+
+//getting all tasks
+Route::get('/alltasks', function(){
+    return view ('cust.tasks');
+})->name('alltasks');
+
+//  view task
+// Route::get('/viewcreatedtask', function(){
+//     return view ('cust.viewtask');
+// })->name('viewcreatedtask');
+
+// save task
+Route::post('/SaveCreatedTask', 'AboutTask\TaskController@store');
+//get tasks
+Route::get('/getTasks','AboutTask\TaskController@index');
+// view task
+Route::get('/alltasks/{id}','AboutTask\TaskController@showTask');
+//update task
+Route::post('/updateTask/{id}','AboutTask\TaskController@updateTask');

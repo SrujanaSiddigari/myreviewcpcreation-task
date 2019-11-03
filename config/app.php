@@ -53,6 +53,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+    'invoygo_sp_url' => env('INVOYGO_SP_URL', 'https://invoygo.test'),
 
     'asset_url' => env('ASSET_URL', null),
 

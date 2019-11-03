@@ -23,13 +23,7 @@
       <link rel="stylesheet" href="{{ asset('global/fonts/web-icons/web-icons.min599c.css?v4.0.2')}}">
       <link rel="stylesheet" href="{{ asset('global/fonts/brand-icons/brand-icons.min599c.css?v4.0.2')}}">
       <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic">
-      <!--[if lt IE 9]>
-      <script src="{{ asset('global/vendor/html5shiv/html5shiv.min.js?v4.0.2') }}"></script>
-      <![endif]-->
-      <!--[if lt IE 10]>
-      <script src="{{ asset('global/vendor/media-match/media.match.min.js?v4.0.2') }}"></script>
-      <script src="{{ asset('global/vendor/respond/respond.min.js?v4.0.2') }}"></script>
-      <![endif]-->
+
       <!-- Scripts -->
       <script src="{{ asset('global/vendor/breakpoints/breakpoints.min599c.js?v4.0.2')}}"></script>
       <script>
@@ -37,11 +31,8 @@
       </script>
    </head>
    <body class="animsition site-navbar-small dashboard">
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+   
      @include('layouts.theme-topnav')
-     @include('layouts.theme-sidenav')
      @yield('page-content')
 
       <!-- Core  -->
@@ -88,39 +79,6 @@
          
          $(document).ready(function () {
             Site.run();
-            
-            
-
-             $("#apiLogout").click(function(e){ 
-               e.preventDefault();      
-               var url = "http://invoygo.test/api/logout";
-               var method = "POST";
-               var data={};
-               sendRequestWithData(url, data, method, apiLogoutSuccess, apiLogoutFailure);
-            });
-            function apiLogoutSuccess(data){
-               localStorage.removeItem('appname_token');
-               localStorage.removeItem('customer_details');
-               swal({
-                     icon: "success",
-                     title: 'Logout Successful',
-                     text: 'You have successfully logged out of Invoygo portal',
-                     timer: 3000,
-                     buttons: false,
-               }).then(function(){
-                  window.location = '/login';
-               });
-            }
-            function apiLogoutFailure(data){
-               swal({
-                        icon: "error",
-                        title: 'Could Not Logout',
-                        text: 'Please close your browser window to delete your existing session.',
-                        button: "Ok",
-                        showConfirmButton: true,            
-                  });
-            }
-      
          });
       </script>
       @yield('page-scripts')

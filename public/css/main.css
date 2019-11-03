@@ -1,16 +1,14 @@
-.panel-group .panel-title:focus, .panel-group .panel-title:hover {
-    color: #0b69e3 !important;
-    text-decoration: none;
+
+.verror{
+    color:red;
+    font-weight: 500;
 }
-.cardheight {
-    color: #fff;
-    height: 200px !important;
-    background-color: #3e8ef7;
+#created_tasks_table_wrapper{
+    margin-top:20px;
 }
-.cardstyle{
-    height: 127px !important;
+body{
+    margin-top: -77px !important;
 }
-small {
-    font-size: 110% !important;
-    font-weight: 300;
+.fg-toolbar{
+    background: none !important;
 }
