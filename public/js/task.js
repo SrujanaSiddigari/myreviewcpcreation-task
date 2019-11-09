@@ -28,4 +28,5 @@ $(document).ready(function () {
   function taskSaveFailed(data){
     console.log("task failed"+ data);
   }
+  $("#priority").mask('000');
 });

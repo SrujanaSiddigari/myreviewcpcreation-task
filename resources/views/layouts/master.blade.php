@@ -174,8 +174,6 @@
    <script src="{{ asset('global/js/jquery.dataTables.min.js') }}"></script>
    <script src="{{ asset('global/js/dataTables.jqueryui.min.js') }}"></script>
 
-  
-
 
   <script src="{{ asset('assets/examples/js/tables/datatable.min599c.js?v4.0.2') }}"></script> 
 

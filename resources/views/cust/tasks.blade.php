@@ -20,8 +20,8 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Subject</th>
-                                    <th>Due Date</th>
                                     <th>Description</th>
+                                    <th>Due Date</th>
                                     <th>Priority</th>
                                     <th>Action</th>
                                 </tr>

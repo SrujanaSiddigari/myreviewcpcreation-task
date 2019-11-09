@@ -32,7 +32,7 @@ Route::get('/alltasks', function(){
 // save task
 Route::post('/SaveCreatedTask', 'AboutTask\TaskController@store');
 //get tasks
-Route::get('/getTasks','AboutTask\TaskController@index');
+Route::get('/getTasks','AboutTask\TaskController@getData');
 // view task
 Route::get('/alltasks/{id}','AboutTask\TaskController@showTask');
 //update task
